@@ -4,6 +4,10 @@ This is an iOS Activation Lock Bypass Tool. I wrote this tool mainly because the
 
 Looking for developers! This is a work in progress. If you think you can add to this project please get in touch!
 
+### Screenshot
+
+![img](https://i.imgur.com/GTNbIv2.png)
+
 ### Currently supported
 
 What things you need to install the software and how to install them
