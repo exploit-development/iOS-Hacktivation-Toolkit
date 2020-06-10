@@ -130,13 +130,13 @@ fi
 
 elif [ $ch = 4 ]; then
 
-rm ~/.ssh/known_hosts
+rm ~/.ssh/known_hosts >/dev/null 2>&1
 pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
 python iphonessh/python-client/tcprelay.py -t 44:2222 &
 sleep 1
 while true ; do 
   result=$(ssh -p 2222 -o BatchMode=yes -o ConnectTimeout=1 root@localhost echo ok 2>&1 | grep Connection) # -n shows line number
-  echo "DEBUG: WAITING FOR CONNECTION, PLEASE RE-CONNECT USB CABLE"
+  echo "DEBUG: WAITING FOR CONNECTION, PLEASE DISCONNECT AND RE-CONNECT USB CABLE"
   if [ -z "$result" ] ; then
 sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 mount -o rw,union,update /
 sshpass -p 'alpine' scp -P 2222 mobileactivationd root@localhost:/usr/libexec/mobileactivationd
