@@ -61,15 +61,15 @@ echo ""
 read -p "Complete! Back To Menu? [ Y / n ] : " check
 
 if [ $check = "Y" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check = "y" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check = "Yes" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check = "yes" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check = "YES" ]; then
-bash menu.sh
+bash hacktivation.sh
 else
 exit 1
 fi
@@ -81,15 +81,15 @@ echo ""
 read -p "Complete! Back To Menu? [ Y / n ] : " check2
 
 if [ $check2 = "Y" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check2 = "y" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check2 = "Yes" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check2 = "yes" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check2 = "YES" ]; then
-bash menu.sh
+bash hacktivation.sh
 else
 exit 1
 fi
@@ -101,15 +101,15 @@ echo ""
 read -p "Complete! Back To Menu? [ Y / n ] : " check3
 
 if [ $check3 = "Y" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check3 = "y" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check3 = "Yes" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check3 = "yes" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check3 = "YES" ]; then
-bash menu.sh
+bash hacktivation.sh
 else
 exit 1
 fi
@@ -141,15 +141,15 @@ read -p "Complete! Back To Menu? [ Y / n ] : " check4
 done
 
 if [ $check4 = "Y" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check4 = "y" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check4 = "Yes" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check4 = "yes" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check4 = "YES" ]; then
-bash menu.sh
+bash hacktivation.sh
 else
 exit 1
 fi
@@ -162,15 +162,15 @@ echo ""
 read -p "Complete! Back To Menu? [ Y / n ] : " check5
 
 if [ $check5 = "Y" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check5 = "y" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check5 = "Yes" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check5 = "yes" ]; then
-bash menu.sh
+bash hacktivation.sh
 elif [ $check5 = "YES" ]; then
-bash menu.sh
+bash hacktivation.sh
 else
 exit 1
 fi
