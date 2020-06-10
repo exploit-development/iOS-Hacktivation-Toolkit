@@ -1,11 +1,14 @@
-This is an iOS Activation Lock Bypass Tool. 
+# iOS Hacktivation Toolkit
 
-I wrote this tool mainly because there is nothing out there for Linux (that i could find anyway).
+This is an iOS Activation Lock Bypass Tool. I wrote this tool mainly because there is nothing out there for Linux (that i could find anyway). 
 
 Looking for developers! This is a work in progress. If you think you can add to this project please get in touch!
 
-Currently supported :
+### Currently supported
 
+What things you need to install the software and how to install them
+
+```
 iPhone X
 iPhone 8
 iPhone 7
@@ -25,14 +28,17 @@ iPad Mini 2 (WiFi)
 iPad 4th Generation
 iPod Touch 7th Generation
 iPod Touch 6th Generation
+```
 
-Features : 
+### Features
 
+
+```
 Firmware upgrade
 Jailbreak
 Activation Bypass
 Passcode Bypass (in progress)
-
+```
 Tested on Debian 10. 
 
 Looking for developers! This is a work in progress. If you think you can add to this project please get in touch!
