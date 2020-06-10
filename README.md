@@ -39,6 +39,16 @@ Jailbreak
 Activation Bypass
 Passcode Bypass (in progress)
 ```
+### Install
+
+
+```
+git clone https://github.com/Hacktivation/iOS-Hacktivation-Toolkit.git
+cd iOS-Hacktivation-Toolkit/
+chmod +x hacktivation.sh
+./hacktivation.sh
+```
+
 Tested on Debian 10. 
 
 Looking for developers! This is a work in progress. If you think you can add to this project please get in touch!
