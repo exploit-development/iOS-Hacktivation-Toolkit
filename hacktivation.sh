@@ -127,8 +127,8 @@ while true ; do
 sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 mount -o rw,union,update /
 sshpass -p 'alpine' scp -P 2222 mobileactivationd root@localhost:/usr/libexec/mobileactivationd
 sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 chmod 755 /usr/libexec/mobileactivationd
-sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 lauNChctl unload /System/Library/LauNChDaemons/com.apple.mobileactivationd.plist
-sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 lauNChctl load /System/Library/LauNChDaemons/com.apple.mobileactivationd.plist
+sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 launchctl unload /System/Library/LaunchDaemons/com.apple.mobileactivationd.plist
+sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 launchctl load /System/Library/LaunchDaemons/com.apple.mobileactivationd.plist
 sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 uicache -a
 sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 killall backboardd
 sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 killall SpringBoard
