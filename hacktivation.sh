@@ -196,7 +196,8 @@ echo ""
 rm ~/.ssh/known_hosts >/dev/null 2>&1
 pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
 python iphonessh/python-client/tcprelay.py -t 44:2222 >/dev/null 2>&1 &
-sleep 1
+sleep 2
+sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 mount -o rw,union,update /
 sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222
 pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
 echo ""
