@@ -46,6 +46,7 @@ echo -e "$CYAN 2 : Full Restore Firmware$NC"
 echo -e "$CYAN 3 : Jailbreak$NC"
 echo -e "$CYAN 4 : Activation Bypass$NC"
 echo -e "$CYAN 5 : Passcode Bypass$NC"
+echo -e "$CYAN 6 : SSH Shell$NC"
 echo -e "$CYAN 0 : Exit$NC"
 echo -e ""
 read -p " Choose >  " ch
@@ -184,6 +185,32 @@ bash hacktivation.sh
 elif [ $check5 = "yes" ]; then
 bash hacktivation.sh
 elif [ $check5 = "YES" ]; then
+bash hacktivation.sh
+else
+exit 1
+fi
+
+elif [ $ch = 6 ]; then
+
+echo ""
+rm ~/.ssh/known_hosts >/dev/null 2>&1
+pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
+python iphonessh/python-client/tcprelay.py -t 44:2222 >/dev/null 2>&1 &
+sleep 1
+sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222
+pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
+echo ""
+read -p "Complete! Back To Menu? [ Y / n ] : " check6
+
+if [ $check6 = "Y" ]; then
+bash hacktivation.sh
+elif [ $check6 = "y" ]; then
+bash hacktivation.sh
+elif [ $check6 = "Yes" ]; then
+bash hacktivation.sh
+elif [ $check6 = "yes" ]; then
+bash hacktivation.sh
+elif [ $check6 = "YES" ]; then
 bash hacktivation.sh
 else
 exit 1
