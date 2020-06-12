@@ -40,6 +40,10 @@ Passcode Bypass (in progress)
 ```
 ### Install
 
+#UBUNTU LIVE USB USERS WILL NEED TO ENABLE ALL SOFTWARE REPOS IN SOFTWARE & UPDATES
+
+![img](https://i.imgur.com/05scg8J.png)
+
 
 ```
 sudo apt install git
@@ -49,7 +53,7 @@ chmod +x hacktivation.sh
 sudo ./hacktivation.sh
 ```
 
-Tested on Debian 10. 
+Tested on Debian 10 and Ubuntu 20.04
 
 Looking for developers! This is a work in progress. If you think you can add to this project please get in touch!
 
