@@ -8,7 +8,7 @@ Looking for developers! This is a work in progress. If you think you can add to 
 
 ### Screenshot
 
-![img](https://i.imgur.com/GTNbIv2.png)
+![img](https://i.imgur.com/IzrOvo1.png)
 
 ### Currently supported
 
