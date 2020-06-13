@@ -39,13 +39,13 @@ echo -e " [+]              $GREEN  Coded by SRS   $NC             [+]"
 echo -e " [+] 		  $GREEN appsec@tuta.io$NC 	        [+]"
 echo -e " [+]$GREEN Thanks to$NC :$GREEN @exploit3dguy + @appletech752 $NC [+]"
 
-ActivationState=$(ideviceinfo | grep ActivationState | awk '{print $NF}')
-MobileEquipmentIdentifier=$(ideviceinfo | grep 'MobileEquipmentIdentifier' | sed "s/^[ \t]*//"  | uniq | awk '{print $NF}')
-DeviceName=$(ideviceinfo | grep DeviceName | awk '{print $NF}')
-UniqueDeviceID=$(ideviceinfo | grep UniqueDeviceID | awk '{print $NF}')
-SerialNumber=$(ideviceinfo | grep -w SerialNumber | awk '{print $NF}')
-ProductType=$(ideviceinfo | grep ProductType | awk '{print $NF}')
-ProductVersion=$(ideviceinfo | grep ProductVersion | awk '{print $NF}')
+ActivationState=$(ideviceinfo 2> /dev/null | grep ActivationState | awk '{print $NF}') 
+MobileEquipmentIdentifier=$(ideviceinfo 2> /dev/null | grep 'MobileEquipmentIdentifier' | sed "s/^[ \t]*//"  | uniq | awk '{print $NF}')
+DeviceName=$(ideviceinfo 2> /dev/null | grep DeviceName | awk '{print $NF}') 
+UniqueDeviceID=$(ideviceinfo 2> /dev/null | grep UniqueDeviceID | awk '{print $NF}')
+SerialNumber=$(ideviceinfo 2> /dev/null | grep -w SerialNumber | awk '{print $NF}') 
+ProductType=$(ideviceinfo 2> /dev/null | grep ProductType | awk '{print $NF}')
+ProductVersion=$(ideviceinfo 2> /dev/null | grep ProductVersion | awk '{print $NF}')
 
 if test -z "$ActivationState" 
 then
