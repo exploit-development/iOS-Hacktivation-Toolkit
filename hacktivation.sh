@@ -38,7 +38,7 @@ echo -e " **************************************************$NC"
 echo -e " [+]              $GREEN  Coded by SRS   $NC             [+]"
 echo -e " [+] 		  $GREEN appsec@tuta.io$NC 	        [+]"
 echo -e " [+]$GREEN Thanks to$NC :$GREEN @exploit3dguy + @appletech752 $NC [+]"
-echo -e " [+]                                            [+]"
+
 ActivationState=$(ideviceinfo | grep ActivationState | awk '{print $NF}')
 MobileEquipmentIdentifier=$(ideviceinfo | grep -w ' MobileEquipmentIdentifier' | awk '{print $NF}')
 DeviceName=$(ideviceinfo | grep DeviceName | awk '{print $NF}')
@@ -47,16 +47,24 @@ SerialNumber=$(ideviceinfo | grep -w SerialNumber | awk '{print $NF}')
 ProductType=$(ideviceinfo | grep ProductType | awk '{print $NF}')
 ProductVersion=$(ideviceinfo | grep ProductVersion | awk '{print $NF}')
 
-echo -e " [+]$GREEN  Activation State : $ActivationState   $NC    [+]"
-echo -e " [+]$GREEN  IMEI : $MobileEquipmentIdentifier   $NC                  [+]"
-echo -e " [+]$GREEN  Device Name : $DeviceName   $NC                   [+]"
-echo -e " [+]$GREEN  Serial Number : $SerialNumber   $NC           [+]"
-echo -e " [+]$GREEN  Device : $ProductType   $NC                    [+]"
-echo -e " [+]$GREEN  Firmware : $ProductVersion   $NC                      [+]"
+if test -z "$ActivationState" 
+then
+      echo ' --------------------------------------------------'
+      echo -e "    $RED          CANNOT CONNECT TO DEVICE$NC             "
+      echo ' --------------------------------------------------'
+else
+      echo ' --------------------------------------------------'
+      echo -e "$GREEN Activation State : $ActivationState $NC"
+      echo -e "$GREEN IMEI : $MobileEquipmentIdentifier $NC"
+      echo -e "$GREEN Device Name : $DeviceName $NC"
+      echo -e "$GREEN Serial Number : $SerialNumber $NC"
+      echo -e "$GREEN Device : $ProductType $NC"
+      echo -e "$GREEN Firmware : $ProductVersion $NC"
+      echo ' --------------------------------------------------'
+fi
 
-echo ""
 echo -e "$YELLOW Select From Menu : $NC"
-echo ""
+echo ' --------------------------------------------------'	
 echo -e "$CYAN 1 : Installation$NC"
 echo -e "$CYAN 2 : Full Restore Firmware$NC"
 echo -e "$CYAN 3 : Jailbreak$NC"
@@ -64,7 +72,7 @@ echo -e "$CYAN 4 : Activation Bypass$NC"
 echo -e "$CYAN 5 : Passcode Bypass$NC"
 echo -e "$CYAN 6 : SSH Shell$NC"
 echo -e "$CYAN 0 : Exit$NC"
-echo -e ""
+echo ' --------------------------------------------------'
 read -p " Choose >  " ch
 
 if [ $ch = 1 ]; then
