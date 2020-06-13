@@ -35,9 +35,25 @@ echo -e "$GREEN"
 echo " **************************************************"
 echo " ************ iOS Hacktivation Toolkit ************"
 echo -e " **************************************************$NC"
-echo -e " [+]              $RED Coded by SRdev$NC               [+]"
-echo -e " [+] 		  $RED appsec@tuta.io$NC 	        [+]"
-echo -e " [+]$RED 	    Thanks to$NC :$GREEN {@exploit3dguy}$NC  	[+]"
+echo -e " [+]              $GREEN  Coded by SRS   $NC             [+]"
+echo -e " [+] 		  $GREEN appsec@tuta.io$NC 	        [+]"
+echo -e " [+]$GREEN Thanks to$NC :$GREEN @exploit3dguy + @appletech752 $NC [+]"
+echo -e " [+]                                            [+]"
+ActivationState=$(ideviceinfo | grep ActivationState | awk '{print $NF}')
+MobileEquipmentIdentifier=$(ideviceinfo | grep -w ' MobileEquipmentIdentifier' | awk '{print $NF}')
+DeviceName=$(ideviceinfo | grep DeviceName | awk '{print $NF}')
+UniqueDeviceID=$(ideviceinfo | grep UniqueDeviceID | awk '{print $NF}')
+SerialNumber=$(ideviceinfo | grep -w SerialNumber | awk '{print $NF}')
+ProductType=$(ideviceinfo | grep ProductType | awk '{print $NF}')
+ProductVersion=$(ideviceinfo | grep ProductVersion | awk '{print $NF}')
+
+echo -e " [+]$GREEN  Activation State : $ActivationState   $NC    [+]"
+echo -e " [+]$GREEN  IMEI : $MobileEquipmentIdentifier   $NC                  [+]"
+echo -e " [+]$GREEN  Device Name : $DeviceName   $NC                   [+]"
+echo -e " [+]$GREEN  Serial Number : $SerialNumber   $NC           [+]"
+echo -e " [+]$GREEN  Device : $ProductType   $NC                    [+]"
+echo -e " [+]$GREEN  Firmware : $ProductVersion   $NC                      [+]"
+
 echo ""
 echo -e "$YELLOW Select From Menu : $NC"
 echo ""
@@ -64,6 +80,7 @@ git clone 'https://github.com/libimobiledevice/libimobiledevice'
 git clone 'https://github.com/libimobiledevice/libusbmuxd'
 git clone 'https://github.com/libimobiledevice/libplist'
 git clone 'https://github.com/rcg4u/iphonessh.git'
+git clone 'https://github.com/DanielVolt/ipwndfu.git'
 cd libplist && ./autogen.sh --without-cython && sudo make install && cd ..
 cd libusbmuxd && ./autogen.sh && sudo make install && cd ..
 cd libimobiledevice && ./autogen.sh --without-cython && sudo make install && cd ..
