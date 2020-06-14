@@ -37,6 +37,8 @@ clear
 #MENU
 ###########################
 
+main_menu(){
+
 echo -e "$GREEN"
 
 echo " **************************************************"
@@ -47,7 +49,7 @@ echo -e " [+] 		  $GREEN appsec@tuta.io$NC 	        [+]"
 echo -e " [+]$GREEN  	  Co-developed by @johnponflanchan$NC      [+]"
 echo -e " [+]$GREEN Thanks to$NC :$GREEN @exploit3dguy + @appletech752 $NC [+]"
 
-ActivationState=$(ideviceinfo | grep ActivationState: | awk '{print $NF}')
+ActivationState=$(ideviceinfo | grep ActivationState | awk '{print $NF}')
 MobileEquipmentIdentifier=$(ideviceinfo | grep 'MobileEquipmentIdentifier' | sed "s/^[ \t]*//"  | uniq | awk '{print $NF}')
 DeviceName=$(ideviceinfo | grep DeviceName | awk '{print $NF}')
 UniqueDeviceID=$(ideviceinfo | grep UniqueDeviceID | awk '{print $NF}')
@@ -58,7 +60,8 @@ ProductVersion=$(ideviceinfo | grep ProductVersion | awk '{print $NF}')
 if test -z "$ActivationState" 
 then
       echo ' --------------------------------------------------'
-      echo -e "    $RED          CANNOT CONNECT TO DEVICE$NC             "
+      echo -e "$RED              CANNOT CONNECT TO DEVICE             "
+      echo -e "$RED    IF YOUR DEVICE IS IN DFU MODE, THIS IS OKAY$NC"
       echo ' --------------------------------------------------'
 else
       echo ' --------------------------------------------------'
@@ -102,15 +105,15 @@ git clone 'https://github.com/libimobiledevice/libusbmuxd'
 git clone 'https://github.com/libimobiledevice/libplist'
 git clone 'https://github.com/rcg4u/iphonessh.git'
 git clone 'https://github.com/DanielVolt/ipwndfu.git'
-cd libplist && ./autogen.sh --without-cython && sudo make install && cd ..
-cd libusbmuxd && ./autogen.sh && sudo make install && cd ..
-cd libimobiledevice && ./autogen.sh --without-cython && sudo make install && cd ..
-cd usbmuxd && ./autogen.sh && sudo make install && cd ..
-cd libirecovery && ./autogen.sh && sudo make install && cd ..
-cd idevicerestore && ./autogen.sh && sudo make install && cd ..
-tar xvf bypass_scripts/ramdisk_ipad4/ramdisk.tar.gz -C bypass_scripts/ramdisk_ipad4/
-tar xvf bypass_scripts/ramdisk_iphone5/ramdisk.tar.gz -C bypass_scripts/ramdisk_iphone5/
-tar xvf bypass_scripts/ramdisk_iphone5c/ramdisk.tar.gz -C bypass_scripts/ramdisk_iphone5c/
+cd ./libplist && ./autogen.sh --without-cython && sudo make install && cd ..
+cd ./libusbmuxd && ./autogen.sh && sudo make install && cd ..
+cd ./libimobiledevice && ./autogen.sh --without-cython && sudo make install && cd ..
+cd ./usbmuxd && ./autogen.sh && sudo make install && cd ..
+cd ./libirecovery && ./autogen.sh && sudo make install && cd ..
+cd ./idevicerestore && ./autogen.sh && sudo make install && cd ..
+tar xvf ./bypass_scripts/ramdisk_ipad4/ramdisk.tar.gz -C bypass_scripts/ramdisk_ipad4/
+tar xvf ./bypass_scripts/ramdisk_iphone5/ramdisk.tar.gz -C bypass_scripts/ramdisk_iphone5/
+tar xvf ./bypass_scripts/ramdisk_iphone5c/ramdisk.tar.gz -C bypass_scripts/ramdisk_iphone5c/
 sudo ldconfig
 echo ""
 read -p "Complete! Back To Menu? [ Y / n ] : " check
@@ -187,10 +190,7 @@ bypass_scripts/mobileactivationd_13_x/./run.sh
 
 echo""
 read -p "Complete! Back To Menu? [ Y / n ] : " check4
-    break
-  fi
-  sleep 1
-done
+
 
 if [ $check4 = "Y" ]; then
 bash hacktivation.sh
@@ -205,6 +205,18 @@ bash hacktivation.sh
 else
 exit 1
 fi
+
+elif [ $ch = 5 ]; then
+
+bypass_scripts/mobileactivationd_12_4_7/./run.sh
+
+###########################
+#A6 bypass lol
+###########################
+
+elif [ $ch = 6 ]; then
+
+cd bypass_scripts && chmod +x ./A6_menu.sh && bash A6_menu.sh
 
 ###########################
 #SSH SHELL
@@ -235,11 +247,24 @@ bash hacktivation.sh
 else
 exit 1
 fi
-elif [ $ch == 99 ]; then
+elif [ $ch == 0 ]; then
 echo -e "$RED Program Exit ...$NC"
 sleep 0.25
 exit 1
 else
-echo "Not Found, Exit"
+echo "Option not found. Try again."
+sleep 0.5
+clear
+main_menu
+fi
+
+}
+
+if [ -f "hacktivation.sh" ]; then
+main_menu;
+else
+echo " You need to run the script in the same folder the shell script is in."
+echo " You can't just drag it into the Terminal. Exiting..."
 exit 1
 fi
+
