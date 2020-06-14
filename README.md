@@ -27,20 +27,15 @@ iPhone 5
 iPhone 2/3
 
 iPad Pro (2015 & 2017 models)
-iPad 5th/6th/7th Generation
+iPad 4th/5th/6th/7th Generation
 iPad Mini 4
 iPad Air 2
 iPad Air 1 (WiFi)
 iPad Mini 3
 iPad Mini 2 (WiFi)
-iPad 4th Generation
 
 iPod Touch 7th Generation
 iPod Touch 6th Generation
-iPod Touch 4th Generation
-iPod Touch 3rd Generation
-iPod Touch 2nd Generation
-iPod Touch 1st Generation
 ```
 
 ### Features
