@@ -47,7 +47,7 @@ echo -e " [+] 		  $GREEN appsec@tuta.io$NC 	        [+]"
 echo -e " [+]$GREEN  	  Co-developed by @johnponflanchan$NC      [+]"
 echo -e " [+]$GREEN Thanks to$NC :$GREEN @exploit3dguy + @appletech752 $NC [+]"
 
-ActivationState=$(ideviceinfo | grep ActivationState | awk '{print $NF}')
+ActivationState=$(ideviceinfo | grep ActivationState: | awk '{print $NF}')
 MobileEquipmentIdentifier=$(ideviceinfo | grep 'MobileEquipmentIdentifier' | sed "s/^[ \t]*//"  | uniq | awk '{print $NF}')
 DeviceName=$(ideviceinfo | grep DeviceName | awk '{print $NF}')
 UniqueDeviceID=$(ideviceinfo | grep UniqueDeviceID | awk '{print $NF}')
