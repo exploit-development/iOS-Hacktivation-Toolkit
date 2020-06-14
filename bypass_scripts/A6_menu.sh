@@ -9,11 +9,11 @@ NC="\e[0m"
 
 a6_load_ramdisks(){
 	if [ $chexmix == 1 ]; then
-		devicename = "iphone5"
+		devicename="iphone5"
 	elif [ $chexmix == 2 ]; then
-		devicename = "iphone5c"
+		devicename="iphone5c"
 	elif [ $chexmix == 3 ]; then
-		devicename = "ipad4"
+		devicename="ipad4"
 	else
 	echo "waht teh fck"
 	sleep 1
@@ -21,22 +21,24 @@ a6_load_ramdisks(){
 	fi
 	#Loading the ramdisks
 	./ipwndfu -l ../bypass_scripts/ramdisk_$devicename/iBSS
-	irecovery -f ../ramdisks/iphone5/iBEC
+	cd ..
+	sleep 1
+	irecovery -f bypass_scripts/ramdisk_$devicename/iBEC
 	sleep 3
 	echo "waiting..."
 	sleep 3
-	irecovery -f ../bypass_scripts/ramdisk_$devicename/devicetree
+	irecovery -f bypass_scripts/ramdisk_$devicename/devicetree
 	irecovery -c devicetree
-	irecovery -f ../bypass_scripts/ramdisk_$devicename/ramdisk
+	irecovery -f bypass_scripts/ramdisk_$devicename/ramdisk
 	irecovery -c ramdisk
-	irecovery -f ../bypass_scripts/ramdisk_$devicename/kernelcache
+	irecovery -f bypass_scripts/ramdisk_$devicename/kernelcache
 	irecovery -c bootx
 	echo "waiting..."
 	sleep 8
 	#This is the SSH part
 	rm ~/.ssh/known_hosts >/dev/null 2>&1
 	pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
-	python ../iphonessh/python-client/tcprelay.py -t 22:2222 &
+	python iphonessh/python-client/tcprelay.py -t 22:2222 &
 	sleep 1
 	sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 mount_hfs /dev/disk0s1s1 /mnt1
 	sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 rm -r /mnt1/Applications/Setup.app
@@ -44,7 +46,6 @@ a6_load_ramdisks(){
 	pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
 	echo ""
 	read -p "Bypass done. Press enter to return to the main menu." dummy
-	cd ..
 	bash hacktivation.sh
 	}
 
