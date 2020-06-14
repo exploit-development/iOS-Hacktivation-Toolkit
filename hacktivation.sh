@@ -48,6 +48,7 @@ echo -e " [+]              $GREEN  Coded by SRS   $NC             [+]"
 echo -e " [+] 		  $GREEN appsec@tuta.io$NC 	        [+]"
 echo -e " [+]$GREEN  	  Co-developed by @johnponflanchan$NC      [+]"
 echo -e " [+]$GREEN Thanks to$NC :$GREEN @exploit3dguy + @appletech752 $NC [+]"
+echo -e " [+]$GREEN 		    & @iRogerosx 	       $NC [+]"
 
 ActivationState=$(ideviceinfo | grep ActivationState | awk '{print $NF}')
 MobileEquipmentIdentifier=$(ideviceinfo | grep 'MobileEquipmentIdentifier' | sed "s/^[ \t]*//"  | uniq | awk '{print $NF}')
@@ -267,4 +268,3 @@ echo " You need to run the script in the same folder the shell script is in."
 echo " You can't just drag it into the Terminal. Exiting..."
 exit 1
 fi
-
