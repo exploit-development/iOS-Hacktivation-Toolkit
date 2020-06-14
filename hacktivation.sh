@@ -21,7 +21,11 @@ YELLOW="\033[1;33m"
 CYAN="\033[0;36m"
 NC="\e[0m"
 
+
+###########################
 #ROOT PRIVILEGES
+###########################
+
 if [[ $EUID -ne 0 ]]; then
         echo -e "$RED You don't have root privileges, execute the script as root.$NC"
         exit 1
@@ -29,7 +33,10 @@ fi
 
 clear
 
-#menu
+###########################
+#MENU
+###########################
+
 echo -e "$GREEN"
 
 echo " **************************************************"
@@ -37,15 +44,16 @@ echo " ************ iOS Hacktivation Toolkit ************"
 echo -e " **************************************************$NC"
 echo -e " [+]              $GREEN  Coded by SRS   $NC             [+]"
 echo -e " [+] 		  $GREEN appsec@tuta.io$NC 	        [+]"
+echo -e " [+]$GREEN  	  Co-developed by @johnponflanchan$NC      [+]"
 echo -e " [+]$GREEN Thanks to$NC :$GREEN @exploit3dguy + @appletech752 $NC [+]"
 
-ActivationState=$(ideviceinfo 2> /dev/null | grep ActivationState | awk '{print $NF}') 
-MobileEquipmentIdentifier=$(ideviceinfo 2> /dev/null | grep 'MobileEquipmentIdentifier' | sed "s/^[ \t]*//"  | uniq | awk '{print $NF}')
-DeviceName=$(ideviceinfo 2> /dev/null | grep DeviceName | awk '{print $NF}') 
-UniqueDeviceID=$(ideviceinfo 2> /dev/null | grep UniqueDeviceID | awk '{print $NF}')
-SerialNumber=$(ideviceinfo 2> /dev/null | grep -w SerialNumber | awk '{print $NF}') 
-ProductType=$(ideviceinfo 2> /dev/null | grep ProductType | awk '{print $NF}')
-ProductVersion=$(ideviceinfo 2> /dev/null | grep ProductVersion | awk '{print $NF}')
+ActivationState=$(ideviceinfo | grep ActivationState | awk '{print $NF}')
+MobileEquipmentIdentifier=$(ideviceinfo | grep 'MobileEquipmentIdentifier' | sed "s/^[ \t]*//"  | uniq | awk '{print $NF}')
+DeviceName=$(ideviceinfo | grep DeviceName | awk '{print $NF}')
+UniqueDeviceID=$(ideviceinfo | grep UniqueDeviceID | awk '{print $NF}')
+SerialNumber=$(ideviceinfo | grep -w SerialNumber | awk '{print $NF}')
+ProductType=$(ideviceinfo | grep ProductType | awk '{print $NF}')
+ProductVersion=$(ideviceinfo | grep ProductVersion | awk '{print $NF}')
 
 if test -z "$ActivationState" 
 then
@@ -65,15 +73,20 @@ fi
 
 echo -e "$YELLOW Select From Menu : $NC"
 echo ' --------------------------------------------------'	
-echo -e "$CYAN 1 : Installation$NC"
-echo -e "$CYAN 2 : Full Restore Firmware$NC"
-echo -e "$CYAN 3 : Jailbreak$NC"
-echo -e "$CYAN 4 : Activation Bypass$NC"
-echo -e "$CYAN 5 : Passcode Bypass$NC"
-echo -e "$CYAN 6 : SSH Shell$NC"
+echo -e "$CYAN 1 : Complete Installation$NC"
+echo -e "$CYAN 2 : Factory Reset (Restore iDevice)$NC"
+echo -e "$CYAN 3 : Jailbreak (checkra1n)$NC"
+echo -e "$CYAN 4 : Bypass iOS 13.0 > | 6S, SE, 7, 8, X$NC"
+echo -e "$CYAN 5 : Bypass iOS 12.4.7 | 5S, 6$NC"
+echo -e "$CYAN 6 : Bypass Ramdisk    | 5, 5C, iPad 4$NC"
+echo -e "$CYAN 7 : SSH Shell$NC"
 echo -e "$CYAN 0 : Exit$NC"
 echo ' --------------------------------------------------'
 read -p " Choose >  " ch
+
+###########################
+#INSTALL
+###########################
 
 if [ $ch = 1 ]; then
 
@@ -95,8 +108,10 @@ cd libimobiledevice && ./autogen.sh --without-cython && sudo make install && cd 
 cd usbmuxd && ./autogen.sh && sudo make install && cd ..
 cd libirecovery && ./autogen.sh && sudo make install && cd ..
 cd idevicerestore && ./autogen.sh && sudo make install && cd ..
+tar xvf bypass_scripts/ramdisk_ipad4/ramdisk.tar.gz -C bypass_scripts/ramdisk_ipad4/
+tar xvf bypass_scripts/ramdisk_iphone5/ramdisk.tar.gz -C bypass_scripts/ramdisk_iphone5/
+tar xvf bypass_scripts/ramdisk_iphone5c/ramdisk.tar.gz -C bypass_scripts/ramdisk_iphone5c/
 sudo ldconfig
-base64 -d hacktivation.base64 > mobileactivationd
 echo ""
 read -p "Complete! Back To Menu? [ Y / n ] : " check
 
@@ -113,6 +128,10 @@ bash hacktivation.sh
 else
 exit 1
 fi
+
+###########################
+#RESTORE
+###########################
 
 elif [ $ch = 2 ]; then
 
@@ -134,6 +153,10 @@ else
 exit 1
 fi
 
+###########################
+#CHECKRA1N
+###########################
+
 elif [ $ch = 3 ]; then
 
 checkra1n
@@ -154,25 +177,14 @@ else
 exit 1
 fi
 
+###########################
+#IOS 13 > MOBILEACTIVATIOND
+###########################
+
 elif [ $ch = 4 ]; then
 
-rm ~/.ssh/known_hosts >/dev/null 2>&1
-pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
-python iphonessh/python-client/tcprelay.py -t 44:2222 &
-sleep 1
-while true ; do 
-  result=$(ssh -p 2222 -o BatchMode=yes -o ConnectTimeout=1 root@localhost echo ok 2>&1 | grep Connection) # -n shows line number
-  echo "DEBUG: WAITING FOR CONNECTION, PLEASE DISCONNECT AND RE-CONNECT USB CABLE"
-  if [ -z "$result" ] ; then
-sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 mount -o rw,union,update /
-sshpass -p 'alpine' scp -P 2222 mobileactivationd root@localhost:/usr/libexec/mobileactivationd
-sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 chmod 755 /usr/libexec/mobileactivationd
-sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 launchctl unload /System/Library/LaunchDaemons/com.apple.mobileactivationd.plist
-sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 launchctl load /System/Library/LaunchDaemons/com.apple.mobileactivationd.plist
-sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 uicache -a
-sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 killall backboardd
-sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 killall SpringBoard
-pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
+bypass_scripts/mobileactivationd_13_x/./run.sh
+
 echo""
 read -p "Complete! Back To Menu? [ Y / n ] : " check4
     break
@@ -194,28 +206,10 @@ else
 exit 1
 fi
 
-elif [ $ch = 5 ]; then
-
-echo ""
-echo "FEATURE NOT YET ADDED"
-echo ""
-read -p "Complete! Back To Menu? [ Y / n ] : " check5
-
-if [ $check5 = "Y" ]; then
-bash hacktivation.sh
-elif [ $check5 = "y" ]; then
-bash hacktivation.sh
-elif [ $check5 = "Yes" ]; then
-bash hacktivation.sh
-elif [ $check5 = "yes" ]; then
-bash hacktivation.sh
-elif [ $check5 = "YES" ]; then
-bash hacktivation.sh
-else
-exit 1
-fi
-
-elif [ $ch = 6 ]; then
+###########################
+#SSH SHELL
+###########################
+elif [ $ch = 7 ]; then
 
 echo ""
 rm ~/.ssh/known_hosts >/dev/null 2>&1
@@ -228,15 +222,15 @@ pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
 echo ""
 read -p "Complete! Back To Menu? [ Y / n ] : " check6
 
-if [ $check6 = "Y" ]; then
+if [ $check7 = "Y" ]; then
 bash hacktivation.sh
-elif [ $check6 = "y" ]; then
+elif [ $check7 = "y" ]; then
 bash hacktivation.sh
-elif [ $check6 = "Yes" ]; then
+elif [ $check7 = "Yes" ]; then
 bash hacktivation.sh
-elif [ $check6 = "yes" ]; then
+elif [ $check7 = "yes" ]; then
 bash hacktivation.sh
-elif [ $check6 = "YES" ]; then
+elif [ $check7 = "YES" ]; then
 bash hacktivation.sh
 else
 exit 1
