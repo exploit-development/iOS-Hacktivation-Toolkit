@@ -1,6 +1,6 @@
 # iOS Hacktivation Toolkit
 
-### WORKING IN LATEST 13.5.1 FIRMWARE
+### WORKING ON THE LATEST iOS FIRMWARE CURRENTLY AVAILABLE (iOS 13.5.1)
 
 This is an iOS Activation Lock Bypass Tool. I wrote this tool mainly because there is nothing out there for Linux (that i could find anyway). 
 
@@ -36,16 +36,18 @@ iPad Mini 2 (WiFi)
 
 iPod Touch 7th Generation
 iPod Touch 6th Generation
+iPod Touch 3rd Generation
+iPod Touch 2nd Generation
+iPod Touch 1st Generation
 ```
 
 ### Features
 
 
 ```
-Firmware upgrade
-Jailbreak
-Activation Bypass
-Passcode Bypass (in progress)
+Restore iDevice (Factory reset & firmware upgrade)
+Jailbreak (checkra1n)
+Activation Lock Bypass (Hello screen) for all checkra1n-able devices + iPhone 5, 5c, and iPad 4
 ```
 ### Install
 
