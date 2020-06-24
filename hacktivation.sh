@@ -37,8 +37,6 @@ clear
 #MENU
 ###########################
 
-main_menu(){
-
 echo -e "$GREEN"
 
 echo " **************************************************"
@@ -46,11 +44,10 @@ echo " ************ iOS Hacktivation Toolkit ************"
 echo -e " **************************************************$NC"
 echo -e " [+]              $GREEN  Coded by SRS   $NC             [+]"
 echo -e " [+] 		  $GREEN appsec@tuta.io$NC 	        [+]"
-echo -e " [+]$GREEN  	  Co-developed by @johnponflanchan$NC      [+]"
 echo -e " [+]$GREEN Thanks to$NC :$GREEN @exploit3dguy + @appletech752 $NC [+]"
-echo -e " [+]$GREEN 		    & @iRogerosx 	       $NC [+]"
+echo -e " [+]$GREEN 		    + @iRogerosx 	       $NC [+]"
 
-ActivationState=$(ideviceinfo | grep ActivationState | awk '{print $NF}')
+ActivationState=$(ideviceinfo | grep ActivationState: | awk '{print $NF}')
 MobileEquipmentIdentifier=$(ideviceinfo | grep 'MobileEquipmentIdentifier' | sed "s/^[ \t]*//"  | uniq | awk '{print $NF}')
 DeviceName=$(ideviceinfo | grep DeviceName | awk '{print $NF}')
 UniqueDeviceID=$(ideviceinfo | grep UniqueDeviceID | awk '{print $NF}')
@@ -61,8 +58,7 @@ ProductVersion=$(ideviceinfo | grep ProductVersion | awk '{print $NF}')
 if test -z "$ActivationState" 
 then
       echo ' --------------------------------------------------'
-      echo -e "$RED              CANNOT CONNECT TO DEVICE             "
-      echo -e "$RED    IF YOUR DEVICE IS IN DFU MODE, THIS IS OKAY$NC"
+      echo -e "$RED              CANNOT CONNECT TO DEVICE$NC           "
       echo ' --------------------------------------------------'
 else
       echo ' --------------------------------------------------'
@@ -82,8 +78,7 @@ echo -e "$CYAN 2 : Factory Reset (Restore iDevice)$NC"
 echo -e "$CYAN 3 : Jailbreak (checkra1n)$NC"
 echo -e "$CYAN 4 : Bypass iOS 13.0 > | 6S, SE, 7, 8, X$NC"
 echo -e "$CYAN 5 : Bypass iOS 12.4.7 | 5S, 6$NC"
-echo -e "$CYAN 6 : Bypass Ramdisk    | 5, 5C, iPad 4$NC"
-echo -e "$CYAN 7 : SSH Shell$NC"
+echo -e "$CYAN 6 : SSH Shell$NC"
 echo -e "$CYAN 0 : Exit$NC"
 echo ' --------------------------------------------------'
 read -p " Choose >  " ch
@@ -105,16 +100,12 @@ git clone 'https://github.com/libimobiledevice/libimobiledevice'
 git clone 'https://github.com/libimobiledevice/libusbmuxd'
 git clone 'https://github.com/libimobiledevice/libplist'
 git clone 'https://github.com/rcg4u/iphonessh.git'
-git clone 'https://github.com/DanielVolt/ipwndfu.git'
 cd ./libplist && ./autogen.sh --without-cython && sudo make install && cd ..
 cd ./libusbmuxd && ./autogen.sh && sudo make install && cd ..
 cd ./libimobiledevice && ./autogen.sh --without-cython && sudo make install && cd ..
 cd ./usbmuxd && ./autogen.sh && sudo make install && cd ..
 cd ./libirecovery && ./autogen.sh && sudo make install && cd ..
 cd ./idevicerestore && ./autogen.sh && sudo make install && cd ..
-tar xvf ./bypass_scripts/ramdisk_ipad4/ramdisk.tar.gz -C bypass_scripts/ramdisk_ipad4/
-tar xvf ./bypass_scripts/ramdisk_iphone5/ramdisk.tar.gz -C bypass_scripts/ramdisk_iphone5/
-tar xvf ./bypass_scripts/ramdisk_iphone5c/ramdisk.tar.gz -C bypass_scripts/ramdisk_iphone5c/
 sudo ldconfig
 echo ""
 read -p "Complete! Back To Menu? [ Y / n ] : " check
@@ -207,22 +198,36 @@ else
 exit 1
 fi
 
+###########################
+#IOS 12.4.7 > MOBILEACTIVATIOND
+###########################
+
 elif [ $ch = 5 ]; then
 
 bypass_scripts/mobileactivationd_12_4_7/./run.sh
 
-###########################
-#A6 bypass lol
-###########################
+echo""
+read -p "Complete! Back To Menu? [ Y / n ] : " check5
 
-elif [ $ch = 6 ]; then
 
-cd bypass_scripts && chmod +x ./A6_menu.sh && bash A6_menu.sh
+if [ $check5 = "Y" ]; then
+bash hacktivation.sh
+elif [ $check5 = "y" ]; then
+bash hacktivation.sh
+elif [ $check5 = "Yes" ]; then
+bash hacktivation.sh
+elif [ $check5 = "yes" ]; then
+bash hacktivation.sh
+elif [ $check5 = "YES" ]; then
+bash hacktivation.sh
+else
+exit 1
+fi
 
 ###########################
 #SSH SHELL
 ###########################
-elif [ $ch = 7 ]; then
+elif [ $ch = 6 ]; then
 
 echo ""
 rm ~/.ssh/known_hosts >/dev/null 2>&1
@@ -235,36 +240,22 @@ pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
 echo ""
 read -p "Complete! Back To Menu? [ Y / n ] : " check6
 
-if [ $check7 = "Y" ]; then
+if [ $check6 = "Y" ]; then
 bash hacktivation.sh
-elif [ $check7 = "y" ]; then
+elif [ $check6 = "y" ]; then
 bash hacktivation.sh
-elif [ $check7 = "Yes" ]; then
+elif [ $check6 = "Yes" ]; then
 bash hacktivation.sh
-elif [ $check7 = "yes" ]; then
+elif [ $check6 = "yes" ]; then
 bash hacktivation.sh
-elif [ $check7 = "YES" ]; then
+elif [ $check6 = "YES" ]; then
 bash hacktivation.sh
 else
 exit 1
 fi
 elif [ $ch == 0 ]; then
 echo -e "$RED Program Exit ...$NC"
-sleep 0.25
 exit 1
 else
-echo "Option not found. Try again."
-sleep 0.5
-clear
-main_menu
-fi
-
-}
-
-if [ -f "hacktivation.sh" ]; then
-main_menu;
-else
-echo " You need to run the script in the same folder the shell script is in."
-echo " You can't just drag it into the Terminal. Exiting..."
-exit 1
+echo "Option not found. Exiting"
 fi

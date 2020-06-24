@@ -8,7 +8,7 @@ Looking for developers! This is a work in progress. If you think you can add to 
 
 ### Screenshot
 
-![img](https://i.imgur.com/Teuq7AO.png)
+![img](https://i.imgur.com/3kxYGtC.png)
 
 ### Currently supported
 
@@ -22,12 +22,9 @@ iPhone SE
 iPhone 6s
 iPhone 6
 iPhone 5s
-iPhone 5c
-iPhone 5
-iPhone 2/3
 
 iPad Pro (2015 & 2017 models)
-iPad 4th/5th/6th/7th Generation
+iPad 5th/6th/7th Generation
 iPad Mini 4
 iPad Air 2
 iPad Air 1 (WiFi)
@@ -45,9 +42,9 @@ iPod Touch 1st Generation
 
 
 ```
-Restore iDevice (Factory reset & firmware upgrade)
+Firmware Restore / Upgrade
 Jailbreak (checkra1n)
-Activation Lock Bypass (Hello screen) for all checkra1n-able devices + iPhone 5, 5c, and iPad 4
+Activation Lock Bypass for all checkm8 vulnerable devices
 ```
 ### Install
 
