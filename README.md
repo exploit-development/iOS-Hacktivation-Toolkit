@@ -10,9 +10,7 @@ Looking for developers! This is a work in progress. If you think you can add to 
 
 ![img](https://i.imgur.com/3kxYGtC.png)
 
-### Currently supported
-
-What things you need to install the software and how to install them
+### Supported Devices
 
 ```
 iPhone X
