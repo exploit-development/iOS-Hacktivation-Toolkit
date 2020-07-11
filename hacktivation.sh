@@ -27,11 +27,28 @@ NC="\e[0m"
 ###########################
 
 if [[ $EUID -ne 0 ]]; then
-        echo -e "$RED You don't have root privileges, execute the script as root.$NC"
-        exit 1
+      echo -e "$RED You don't have root privileges, execute the script as root.$NC"
+      exit 1
 fi
 
 clear
+
+
+###########################
+# Functions
+###########################
+
+# Continue or Exit
+function continueOrExit() {
+      echo ""
+      read -p "Complete! Back To Menu? [ Y / n ] : "  CHECK
+      if [[ "$CHECK" = "Y" || "$CHECK" = "y" || "$CHECK" = "Yes" || "$CHECK" = "yes" || "$CHECK" = "YES" ]]; then
+            bash hacktivation.sh
+      else
+            echo -e "$RED Program Exit ...$NC"
+            exit 1
+      fi
+}
 
 ###########################
 #MENU
@@ -107,22 +124,7 @@ cd ./usbmuxd && ./autogen.sh && sudo make install && cd ..
 cd ./libirecovery && ./autogen.sh && sudo make install && cd ..
 cd ./idevicerestore && ./autogen.sh && sudo make install && cd ..
 sudo ldconfig
-echo ""
-read -p "Complete! Back To Menu? [ Y / n ] : " check
-
-if [ $check = "Y" ]; then
-bash hacktivation.sh
-elif [ $check = "y" ]; then
-bash hacktivation.sh
-elif [ $check = "Yes" ]; then
-bash hacktivation.sh
-elif [ $check = "yes" ]; then
-bash hacktivation.sh
-elif [ $check = "YES" ]; then
-bash hacktivation.sh
-else
-exit 1
-fi
+continueOrExit
 
 ###########################
 #RESTORE
@@ -131,22 +133,7 @@ fi
 elif [ $ch = 2 ]; then
 
 idevicerestore -e -l
-echo ""
-read -p "Complete! Back To Menu? [ Y / n ] : " check2
-
-if [ $check2 = "Y" ]; then
-bash hacktivation.sh
-elif [ $check2 = "y" ]; then
-bash hacktivation.sh
-elif [ $check2 = "Yes" ]; then
-bash hacktivation.sh
-elif [ $check2 = "yes" ]; then
-bash hacktivation.sh
-elif [ $check2 = "YES" ]; then
-bash hacktivation.sh
-else
-exit 1
-fi
+continueOrExit
 
 ###########################
 #CHECKRA1N
@@ -155,22 +142,7 @@ fi
 elif [ $ch = 3 ]; then
 
 checkra1n
-echo ""
-read -p "Complete! Back To Menu? [ Y / n ] : " check3
-
-if [ $check3 = "Y" ]; then
-bash hacktivation.sh
-elif [ $check3 = "y" ]; then
-bash hacktivation.sh
-elif [ $check3 = "Yes" ]; then
-bash hacktivation.sh
-elif [ $check3 = "yes" ]; then
-bash hacktivation.sh
-elif [ $check3 = "YES" ]; then
-bash hacktivation.sh
-else
-exit 1
-fi
+continueOrExit
 
 ###########################
 #IOS 13 > MOBILEACTIVATIOND
@@ -179,24 +151,7 @@ fi
 elif [ $ch = 4 ]; then
 
 bypass_scripts/mobileactivationd_13_x/./run.sh
-
-echo""
-read -p "Complete! Back To Menu? [ Y / n ] : " check4
-
-
-if [ $check4 = "Y" ]; then
-bash hacktivation.sh
-elif [ $check4 = "y" ]; then
-bash hacktivation.sh
-elif [ $check4 = "Yes" ]; then
-bash hacktivation.sh
-elif [ $check4 = "yes" ]; then
-bash hacktivation.sh
-elif [ $check4 = "YES" ]; then
-bash hacktivation.sh
-else
-exit 1
-fi
+continueOrExit
 
 ###########################
 #IOS 12.4.7 > MOBILEACTIVATIOND
@@ -205,24 +160,7 @@ fi
 elif [ $ch = 5 ]; then
 
 bypass_scripts/mobileactivationd_12_4_7/./run.sh
-
-echo""
-read -p "Complete! Back To Menu? [ Y / n ] : " check5
-
-
-if [ $check5 = "Y" ]; then
-bash hacktivation.sh
-elif [ $check5 = "y" ]; then
-bash hacktivation.sh
-elif [ $check5 = "Yes" ]; then
-bash hacktivation.sh
-elif [ $check5 = "yes" ]; then
-bash hacktivation.sh
-elif [ $check5 = "YES" ]; then
-bash hacktivation.sh
-else
-exit 1
-fi
+continueOrExit
 
 ###########################
 #SSH SHELL
@@ -237,25 +175,11 @@ sleep 2
 sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222 mount -o rw,union,update /
 sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no root@localhost -p 2222
 pgrep -f 'tcprelay.py' | xargs kill >/dev/null 2>&1
-echo ""
-read -p "Complete! Back To Menu? [ Y / n ] : " check6
+continueOrExit
 
-if [ $check6 = "Y" ]; then
-bash hacktivation.sh
-elif [ $check6 = "y" ]; then
-bash hacktivation.sh
-elif [ $check6 = "Yes" ]; then
-bash hacktivation.sh
-elif [ $check6 = "yes" ]; then
-bash hacktivation.sh
-elif [ $check6 = "YES" ]; then
-bash hacktivation.sh
-else
-exit 1
-fi
 elif [ $ch == 0 ]; then
-echo -e "$RED Program Exit ...$NC"
-exit 1
+      echo -e "$RED Program Exit ...$NC"
+      exit 1
 else
-echo "Option not found. Exiting"
+      echo "Option not found. Exiting"
 fi
