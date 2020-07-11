@@ -40,10 +40,17 @@ iPod Touch 1st Generation
 
 
 ```
-Firmware Restore / Upgrade
-Jailbreak (checkra1n)
-Activation Lock Bypass for all checkm8 vulnerable devices
+- Firmware Restore / Upgrade
+- Jailbreak (checkra1n)
+- Activation Lock Bypass for all checkm8 vulnerable devices
 ```
+
+### Underdevelopment Features
+
+- [x] Feature One
+- [ ] Feature two
+- [ ] Feature three
+
 ### Install
 
 UBUNTU LIVE USB USERS WILL NEED TO ENABLE SOFTWARE REPOS IN SOFTWARE & UPDATES
