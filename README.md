@@ -1,6 +1,6 @@
 # iOS Hacktivation Toolkit
 
-### WORKING ON THE LATEST iOS FIRMWARE CURRENTLY AVAILABLE (iOS 13.5.1)
+### WORKING ON THE LATEST iOS FIRMWARE CURRENTLY AVAILABLE (iOS 13.6)
 
 This is an iOS Activation Lock Bypass Tool. I wrote this tool mainly because there is nothing out there for Linux (that i could find anyway). 
 
@@ -44,12 +44,6 @@ iPod Touch 1st Generation
 - Jailbreak (checkra1n)
 - Activation Lock Bypass for all checkm8 vulnerable devices
 ```
-
-### Underdevelopment Features
-
-- [x] Feature One
-- [ ] Feature two
-- [ ] Feature three
 
 ### Install
 
