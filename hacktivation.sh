@@ -56,16 +56,14 @@ function continueOrExit() {
 
 echo -e "$GREEN"
 
-echo " **************************************************"
-echo " ************ iOS Hacktivation Toolkit ************"
-echo -e " **************************************************$NC"
-echo -e " [+]              $GREEN  Coded by SRS   $NC             [+]"
-echo -e " [+] 		  $GREEN appsec@tuta.io$NC 	        [+]"
-echo -e " [+]$GREEN Thanks to$NC :$GREEN @exploit3dguy + @appletech752 $NC [+]"
-echo -e " [+]$GREEN 		    + @iRogerosx 	       $NC [+]"
+echo " **********************************************************************"
+echo " ********************** iOS Hacktivation Toolkit **********************"
+echo -e " **********************************************************************$NC"
+echo -e " [+]$GREEN        This software is maintained by SRS appsec@tuta.io$NC       [+]"
+echo -e " [+]$GREEN    Thanks to$NC :$GREEN @exploit3dguy + @appletech752 + @iRogerosx $NC     [+]"
+echo -e " [+]$GREEN    @SoNick_14 + OC34N Team + Thelittlechicken + iGerman00 $NC     [+]"
 
 ActivationState=$(ideviceinfo | grep ActivationState: | awk '{print $NF}')
-MobileEquipmentIdentifier=$(ideviceinfo | grep 'MobileEquipmentIdentifier' | sed "s/^[ \t]*//"  | uniq | awk '{print $NF}')
 DeviceName=$(ideviceinfo | grep DeviceName | awk '{print $NF}')
 UniqueDeviceID=$(ideviceinfo | grep UniqueDeviceID | awk '{print $NF}')
 SerialNumber=$(ideviceinfo | grep -w SerialNumber | awk '{print $NF}')
@@ -74,30 +72,26 @@ ProductVersion=$(ideviceinfo | grep ProductVersion | awk '{print $NF}')
 
 if test -z "$ActivationState" 
 then
-      echo ' --------------------------------------------------'
-      echo -e "$RED              CANNOT CONNECT TO DEVICE$NC           "
-      echo ' --------------------------------------------------'
+      echo ' ----------------------------------------------------------------------'
+      echo -e "$RED			CANNOT CONNECT TO DEVICE$NC           "
+      echo ' ----------------------------------------------------------------------'
 else
-      echo ' --------------------------------------------------'
-      echo -e "$GREEN Activation State : $ActivationState $NC"
-      echo -e "$GREEN IMEI : $MobileEquipmentIdentifier $NC"
-      echo -e "$GREEN Device Name : $DeviceName $NC"
-      echo -e "$GREEN Serial Number : $SerialNumber $NC"
-      echo -e "$GREEN Device : $ProductType $NC"
-      echo -e "$GREEN Firmware : $ProductVersion $NC"
-      echo ' --------------------------------------------------'
+      echo ' ----------------------------------------------------------------------'
+      echo -e "$GREEN Serial Number : $SerialNumber $NC$GREEN Device : $ProductType $NC$GREEN Firmware : $ProductVersion $NC"
+      echo ' ----------------------------------------------------------------------'
 fi
 
-echo -e "$YELLOW Select From Menu : $NC"
-echo ' --------------------------------------------------'	
+echo -e "$YELLOW Select an option from the menu : $NC"
+echo ' ----------------------------------------------------------------------'	
 echo -e "$CYAN 1 : Complete Installation$NC"
 echo -e "$CYAN 2 : Factory Reset (Restore iDevice)$NC"
 echo -e "$CYAN 3 : Jailbreak (checkra1n)$NC"
-echo -e "$CYAN 4 : Bypass iOS 13.0 > | 6S, SE, 7, 8, X$NC"
-echo -e "$CYAN 5 : Bypass iOS 12.4.7 | 5S, 6$NC"
-echo -e "$CYAN 6 : SSH Shell$NC"
+echo -e "$CYAN 4 : PAID Untethered Bypass iOS 13.0 > [OC34N ACTIVATION SERVER]$NC"
+echo -e "$CYAN 5 : FREE Tethered Bypass iOS 13.0 > [PATCHED MOBILEACTIVATIOND]$NC"
+echo -e "$CYAN 6 : FREE Tethered Bypass iOS 12.4.7 > [PATCHED MOBILEACTIVATIOND]$NC"
+echo -e "$CYAN 7 : SSH Shell$NC"
 echo -e "$CYAN 0 : Exit$NC"
-echo ' --------------------------------------------------'
+echo ' ----------------------------------------------------------------------'
 read -p " Choose >  " ch
 
 ###########################
@@ -109,8 +103,9 @@ if [ $ch = 1 ]; then
 echo "deb https://assets.checkra.in/debian /" | sudo tee -a /etc/apt/sources.list
 apt-key adv --fetch-keys https://assets.checkra.in/debian/archive.key
 apt update
-apt install -y python libcurl4-openssl-dev libplist-dev libzip-dev openssl libssl-dev libusb-1.0-0-dev libreadline-dev build-essential git make automake libtool pkg-config checkra1n sshpass
+apt install -y python libtool-bin libcurl4-openssl-dev libplist-dev libzip-dev openssl libssl-dev  libcurl4-openssl-dev libimobiledevice-dev libusb-1.0-0-dev libreadline-dev build-essential git make autoconf automake libxml2-dev libtool pkg-config checkra1n sshpass checkinstall
 git clone 'https://github.com/libimobiledevice/libirecovery'
+git clone 'https://github.com/libimobiledevice/libideviceactivation.git'
 git clone 'https://github.com/libimobiledevice/idevicerestore'
 git clone 'https://github.com/libimobiledevice/usbmuxd'
 git clone 'https://github.com/libimobiledevice/libimobiledevice'
@@ -123,6 +118,7 @@ cd ./libimobiledevice && ./autogen.sh --without-cython && sudo make install && c
 cd ./usbmuxd && ./autogen.sh && sudo make install && cd ..
 cd ./libirecovery && ./autogen.sh && sudo make install && cd ..
 cd ./idevicerestore && ./autogen.sh && sudo make install && cd ..
+cd ./libideviceactivation/ && ./autogen.sh && sudo make && sudo make install && cd ..
 sudo ldconfig
 continueOrExit
 
@@ -145,10 +141,19 @@ checkra1n
 continueOrExit
 
 ###########################
-#IOS 13 > MOBILEACTIVATIOND
+#OC34N PAID
 ###########################
 
 elif [ $ch = 4 ]; then
+
+bypass_scripts/oc34n_activation_server_13_x/./run.sh
+continueOrExit
+
+###########################
+#IOS 13 > MOBILEACTIVATIOND
+###########################
+
+elif [ $ch = 5 ]; then
 
 bypass_scripts/mobileactivationd_13_x/./run.sh
 continueOrExit
@@ -157,7 +162,7 @@ continueOrExit
 #IOS 12.4.7 > MOBILEACTIVATIOND
 ###########################
 
-elif [ $ch = 5 ]; then
+elif [ $ch = 6 ]; then
 
 bypass_scripts/mobileactivationd_12_4_7/./run.sh
 continueOrExit
@@ -165,7 +170,7 @@ continueOrExit
 ###########################
 #SSH SHELL
 ###########################
-elif [ $ch = 6 ]; then
+elif [ $ch = 7 ]; then
 
 echo ""
 rm ~/.ssh/known_hosts >/dev/null 2>&1

@@ -1,6 +1,6 @@
 # iOS Hacktivation Toolkit
 
-### WORKING ON THE LATEST iOS FIRMWARE CURRENTLY AVAILABLE (iOS 13.6)
+### WORKING ON THE LATEST iOS FIRMWARE CURRENTLY AVAILABLE (iOS 13.6.1)
 
 This is an iOS Activation Lock Bypass Tool. I wrote this tool mainly because there is nothing out there for Linux (that i could find anyway). 
 
@@ -8,7 +8,7 @@ Looking for developers! This is a work in progress. If you think you can add to 
 
 ### Screenshot
 
-![img](https://i.imgur.com/3kxYGtC.png)
+![img](https://i.imgur.com/RST0Y09.png)
 
 ### Supported Devices
 
