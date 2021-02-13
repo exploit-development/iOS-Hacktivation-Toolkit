@@ -174,7 +174,7 @@ continueOrExit
 
 elif [ $ch = 7 ]; then
 
-bypass_scripts/mdm_bypass./run.sh
+bypass_scripts/mdm_bypass/./run.sh
 continueOrExit
 
 ###########################

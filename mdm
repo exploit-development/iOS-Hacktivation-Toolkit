@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AllowPairing</key>
+	<true/>
+	<key>AutoAdvanceSetup</key>
+	<false/>
+	<key>AwaitDeviceConfigured</key>
+	<false/>
+	<key>CloudConfigurationUIComplete</key>
+	<true/>
+	<key>ConfigurationSource</key>
+	<integer>1</integer>
+	<key>ConfigurationURL</key>
+	<string><![CDATA[https://manage.microsoft.com/EnrollmentServer/Discovery.svc/iOS/ESProxy?id=d6c9d2c9-35af-4fc7-8ad3-3db971936b1c&amp;AADTenantId=36eae5cd-e5ad-4ea6-9d47-86fca48c4841]]></string>
+	<key>IsMDMUnremovable</key>
+	<integer>0</integer>
+	<key>IsMandatory</key>
+	<true/>
+	<key>IsMultiUser</key>
+	<false/>
+	<key>IsSupervised</key>
+	<false/>
+	<key>MDMProtocolVersion</key>
+	<integer>1</integer>
+	<key>OrganizationAddress</key>
+	<string>5200 Illumina Way, n/a, San Diego, CA 92122</string>
+	<key>OrganizationAddressLine1</key>
+	<string>5200 Illumina Way</string>
+	<key>OrganizationAddressLine2</key>
+	<string>n/a</string>
+	<key>OrganizationCity</key>
+	<string>San Diego</string>
+	<key>OrganizationCountry</key>
+	<string>USA</string>
+	<key>OrganizationDepartment</key>
+	<string>GIS End User Services</string>
+	<key>OrganizationEmail</key>
+	<string>globalmobilitydep@illumina.com</string>
+	<key>OrganizationName</key>
+	<string>Pelayo Corps</string>
+	<key>OrganizationPhone</key>
+	<string>(858) 736-3500</string>
+	<key>OrganizationSupportPhone</key>
+	<string>(858) 736-3500</string>
+	<key>OrganizationZipCode</key>
+	<string>92122</string>
+</dict>
+</plist>
