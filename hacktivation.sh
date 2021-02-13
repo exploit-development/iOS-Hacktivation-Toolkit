@@ -61,7 +61,7 @@ echo " ********************** iOS Hacktivation Toolkit **********************"
 echo -e " **********************************************************************$NC"
 echo -e " [+]$GREEN        This software is maintained by SRS appsec@tuta.io$NC       [+]"
 echo -e " [+]$GREEN    Thanks to$NC :$GREEN @exploit3dguy + @appletech752 + @iRogerosx $NC     [+]"
-echo -e " [+]$GREEN    @SoNick_14 + OC34N Team + Thelittlechicken + iGerman00 $NC     [+]"
+echo -e " [+]$GREEN    @SoNick_14 + OC34N Team + Thelittlechicken + iGerman00 + 0x14307 + johnponflanchan$NC     [+]"
 
 ActivationState=$(ideviceinfo | grep ActivationState: | awk '{print $NF}')
 DeviceName=$(ideviceinfo | grep DeviceName | awk '{print $NF}')
@@ -89,7 +89,8 @@ echo -e "$CYAN 3 : Jailbreak (checkra1n)$NC"
 echo -e "$CYAN 4 : PAID Untethered Bypass iOS 13.0 > [OC34N ACTIVATION SERVER]$NC"
 echo -e "$CYAN 5 : FREE Tethered Bypass iOS 13.0 > [PATCHED MOBILEACTIVATIOND]$NC"
 echo -e "$CYAN 6 : FREE Tethered Bypass iOS 12.4.7 > [PATCHED MOBILEACTIVATIOND]$NC"
-echo -e "$CYAN 7 : SSH Shell$NC"
+echo -e "$CYAN 7 : MDM Bypass $NC"
+echo -e "$CYAN 8 : SSH Shell$NC"
 echo -e "$CYAN 0 : Exit$NC"
 echo ' ----------------------------------------------------------------------'
 read -p " Choose >  " ch
@@ -168,9 +169,18 @@ bypass_scripts/mobileactivationd_12_4_7/./run.sh
 continueOrExit
 
 ###########################
+#MDM BYPASS
+###########################
+
+elif [ $ch = 7 ]; then
+
+bypass_scripts/mdm_bypass./run.sh
+continueOrExit
+
+###########################
 #SSH SHELL
 ###########################
-elif [ $ch = 7 ]; then
+elif [ $ch = 8 ]; then
 
 echo ""
 rm ~/.ssh/known_hosts >/dev/null 2>&1
