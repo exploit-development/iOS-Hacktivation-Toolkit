@@ -8,7 +8,7 @@ Looking for developers! This is a work in progress. If you think you can add to 
 
 ### Screenshot
 
-![img](https://i.imgur.com/RST0Y09.png)
+![img](https://i.imgur.com/67y9Ihd.png)
 
 ### Supported Devices
 

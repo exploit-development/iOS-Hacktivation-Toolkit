@@ -59,9 +59,7 @@ echo -e "$GREEN"
 echo " **********************************************************************"
 echo " ********************** iOS Hacktivation Toolkit **********************"
 echo -e " **********************************************************************$NC"
-echo -e " [+]$GREEN        This software is maintained by SRS appsec@tuta.io$NC       [+]"
-echo -e " [+]$GREEN    Thanks to$NC :$GREEN @exploit3dguy + @appletech752 + @iRogerosx $NC     [+]"
-echo -e " [+]$GREEN    @SoNick_14 + OC34N Team + Thelittlechicken + iGerman00 $NC     [+]"
+echo -e " [+]$GREEN    This software is maintained by Codesecure codesecure.org$NC    [+]"
 
 ActivationState=$(ideviceinfo | grep ActivationState: | awk '{print $NF}')
 DeviceName=$(ideviceinfo | grep DeviceName | awk '{print $NF}')
@@ -86,10 +84,9 @@ echo ' ----------------------------------------------------------------------'
 echo -e "$CYAN 1 : Complete Installation$NC"
 echo -e "$CYAN 2 : Factory Reset (Restore iDevice)$NC"
 echo -e "$CYAN 3 : Jailbreak (checkra1n)$NC"
-echo -e "$CYAN 4 : PAID Untethered Bypass iOS 13.0 > [OC34N ACTIVATION SERVER]$NC"
-echo -e "$CYAN 5 : FREE Tethered Bypass iOS 13.0 > [PATCHED MOBILEACTIVATIOND]$NC"
-echo -e "$CYAN 6 : FREE Tethered Bypass iOS 12.4.7 > [PATCHED MOBILEACTIVATIOND]$NC"
-echo -e "$CYAN 7 : SSH Shell$NC"
+echo -e "$CYAN 4 : Tethered Bypass iOS 13.0 > [PATCHED MOBILEACTIVATIOND]$NC"
+echo -e "$CYAN 5 : Tethered Bypass iOS 12.4.7 > [PATCHED MOBILEACTIVATIOND]$NC"
+echo -e "$CYAN 6 : SSH Shell$NC"
 echo -e "$CYAN 0 : Exit$NC"
 echo ' ----------------------------------------------------------------------'
 read -p " Choose >  " ch
@@ -141,19 +138,10 @@ checkra1n
 continueOrExit
 
 ###########################
-#OC34N PAID
-###########################
-
-elif [ $ch = 4 ]; then
-
-bypass_scripts/oc34n_activation_server_13_x/./run.sh
-continueOrExit
-
-###########################
 #IOS 13 > MOBILEACTIVATIOND
 ###########################
 
-elif [ $ch = 5 ]; then
+elif [ $ch = 4 ]; then
 
 bypass_scripts/mobileactivationd_13_x/./run.sh
 continueOrExit
@@ -162,7 +150,7 @@ continueOrExit
 #IOS 12.4.7 > MOBILEACTIVATIOND
 ###########################
 
-elif [ $ch = 6 ]; then
+elif [ $ch = 5 ]; then
 
 bypass_scripts/mobileactivationd_12_4_7/./run.sh
 continueOrExit
@@ -170,7 +158,7 @@ continueOrExit
 ###########################
 #SSH SHELL
 ###########################
-elif [ $ch = 7 ]; then
+elif [ $ch = 6 ]; then
 
 echo ""
 rm ~/.ssh/known_hosts >/dev/null 2>&1
