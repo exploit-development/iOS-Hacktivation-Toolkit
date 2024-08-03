@@ -104,12 +104,14 @@ apt install -y python libtool-bin libcurl4-openssl-dev libplist-dev libzip-dev o
 git clone 'https://github.com/libimobiledevice/libirecovery'
 git clone 'https://github.com/libimobiledevice/libideviceactivation.git'
 git clone 'https://github.com/libimobiledevice/idevicerestore'
+git clone 'https://github.com/libimobiledevice/libimobiledevice-glue'
 git clone 'https://github.com/libimobiledevice/usbmuxd'
 git clone 'https://github.com/libimobiledevice/libimobiledevice'
 git clone 'https://github.com/libimobiledevice/libusbmuxd'
 git clone 'https://github.com/libimobiledevice/libplist'
 git clone 'https://github.com/rcg4u/iphonessh.git'
 cd ./libplist && ./autogen.sh --without-cython && sudo make install && cd ..
+cd ./libimobiledevice-glue && ./autogen.sh && sudo make install && cd ..
 cd ./libusbmuxd && ./autogen.sh && sudo make install && cd ..
 cd ./libimobiledevice && ./autogen.sh --without-cython && sudo make install && cd ..
 cd ./usbmuxd && ./autogen.sh && sudo make install && cd ..
